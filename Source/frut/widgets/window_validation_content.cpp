@@ -246,7 +246,8 @@ void WindowValidationContent::buttonClicked(
                             false);
 
         // open file browser
-        if (browser.showDialog(FileBrowserComponent::openMode |
+        // TODO: why isn't this working?
+        /*if (browser.showDialog(FileBrowserComponent::openMode |
                                FileBrowserComponent::canSelectFiles,
                                nullptr))
         {
@@ -255,7 +256,7 @@ void WindowValidationContent::buttonClicked(
 
             // update validation file
             selectValidationFile(selectedFile);
-        }
+        }*/
     }
 }
 

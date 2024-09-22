@@ -32,7 +32,7 @@
 #include <math.h>
 
 #if FRUT_DSP_USE_FFTW
-#include "fftw/api/fftw3.h"
+#include <fftw3.h>
 #endif  // FRUT_DSP_USE_FFTW
 
 // normal includes

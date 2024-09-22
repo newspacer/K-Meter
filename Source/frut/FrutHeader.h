@@ -27,7 +27,7 @@
 #define FRUT_HEADER_H
 
 // external includes
-#include "JuceHeader.h"
+#include <JuceHeader.h>
 
 #ifndef FRUT_DSP_USE_FFTW
 #define FRUT_DSP_USE_FFTW 0

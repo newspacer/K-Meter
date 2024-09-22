@@ -710,7 +710,7 @@ void KmeterAudioProcessor::processBlock(
     // copy ring buffer back to buffer
     ringBuffer_->removeTo(buffer, 0, numberOfSamples);
 
-    float **bufferSample = buffer.getArrayOfWritePointers();
+    auto bufferSample = buffer.getArrayOfWritePointers();
 
     // fade to mute / dim
     for (int sample = 0; sample < numberOfSamples; ++sample)
@@ -903,7 +903,7 @@ void KmeterAudioProcessor::processBlock(
         ringBuffer_->removeToNull(numberOfSamples);
     }
 
-    double **bufferSample = buffer.getArrayOfWritePointers();
+    auto bufferSample = buffer.getArrayOfWritePointers();
 
     // fade to mute / dim
     for (int sample = 0; sample < numberOfSamples; ++sample)

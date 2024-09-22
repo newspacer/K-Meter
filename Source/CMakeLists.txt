@@ -1,0 +1,87 @@
+juce_add_plugin(K-Meter
+    VERSION 2.8.2
+    COMPANY_NAME "Martin Zuther"
+    IS_SYNTH FALSE
+    NEEDS_MIDI_INPUT FALSE
+    NEEDS_MIDI_OUTPUT FALSE
+    IS_MIDI_EFFECT FALSE
+    EDITOR_WANTS_KEYBOARD_FOCUS FALSE
+    COPY_PLUGIN_AFTER_BUILD FALSE
+    PLUGIN_MANUFACTURER_CODE MZut
+    PLUGIN_CODE kmet
+    FORMATS VST3
+)
+
+
+juce_generate_juce_header(K-Meter)
+
+
+target_sources(K-Meter
+    PRIVATE
+        frut/amalgamated/include_frut_audio.cpp
+        frut/amalgamated/include_frut_dsp.cpp
+        frut/amalgamated/include_frut_math.cpp
+        frut/amalgamated/include_frut_parameters.cpp
+        frut/amalgamated/include_frut_skin.cpp
+        frut/amalgamated/include_frut_widgets.cpp
+
+        audio_file_player.cpp
+        average_level_filtered.cpp
+        kmeter.cpp
+        meter_ballistics.cpp
+        meter_bar.cpp
+        overflow_meter.cpp
+        peak_label.cpp
+        plugin_editor.cpp
+        plugin_parameters.cpp
+        plugin_processor.cpp
+        skin.cpp
+        window_validation_content.cpp
+)
+
+
+target_compile_definitions(K-Meter
+    PUBLIC
+        JUCE_WEB_BROWSER=0
+        JUCE_USE_CURL=0
+        JUCE_VST3_CAN_REPLACE_VST2=0
+
+        NDEBUG=1
+        FRUT_DSP_USE_FFTW=1
+)
+
+
+target_include_directories(K-Meter 
+    PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/frut
+)
+
+
+target_link_libraries(K-Meter
+    PRIVATE
+        fftw3f
+
+        juce::juce_audio_basics
+        juce::juce_audio_devices
+        juce::juce_audio_processors
+        juce::juce_audio_utils
+        juce::juce_cryptography
+        juce::juce_data_structures
+        juce::juce_events
+        juce::juce_graphics
+        juce::juce_gui_basics
+        juce::juce_gui_extra
+        juce::juce_opengl
+        juce::juce_box2d
+        #juce::juce_browser_plugin_client
+        juce::juce_video
+        juce::juce_audio_formats
+        juce::juce_core
+        juce::juce_audio_plugin_client
+    PUBLIC
+        juce::juce_recommended_config_flags
+        juce::juce_recommended_lto_flags
+        juce::juce_recommended_warning_flags
+)
+

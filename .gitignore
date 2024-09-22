@@ -1,5 +1,6 @@
 *~
 .*~
+.clangd
 *.db
 *.log
 *.ncb
