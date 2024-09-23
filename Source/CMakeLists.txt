@@ -1,6 +1,7 @@
 juce_add_plugin(K-Meter
     VERSION 2.8.2
     COMPANY_NAME "Martin Zuther"
+    LV2URI "https://github.com/mzuther/K-Meter"
     IS_SYNTH FALSE
     NEEDS_MIDI_INPUT FALSE
     NEEDS_MIDI_OUTPUT FALSE
@@ -9,7 +10,7 @@ juce_add_plugin(K-Meter
     COPY_PLUGIN_AFTER_BUILD FALSE
     PLUGIN_MANUFACTURER_CODE MZut
     PLUGIN_CODE kmet
-    FORMATS VST3
+    FORMATS VST3 LV2 Standalone
 )
 
 
@@ -84,4 +85,5 @@ target_link_libraries(K-Meter
         juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags
 )
+
 
