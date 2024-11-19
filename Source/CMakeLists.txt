@@ -1,3 +1,6 @@
+
+set(plugin_formats VST3 LV2 Standalone)
+
 juce_add_plugin(K-Meter
     VERSION 2.8.2
     COMPANY_NAME "Martin Zuther"
@@ -10,12 +13,13 @@ juce_add_plugin(K-Meter
     COPY_PLUGIN_AFTER_BUILD FALSE
     PLUGIN_MANUFACTURER_CODE MZut
     PLUGIN_CODE kmet
-    FORMATS VST3 LV2 Standalone
+    FORMATS ${plugin_formats}
 )
 
 
 juce_generate_juce_header(K-Meter)
 
+# add_dependencies(K-Meter assets)
 
 target_sources(K-Meter
     PRIVATE
@@ -86,4 +90,14 @@ target_link_libraries(K-Meter
         juce::juce_recommended_warning_flags
 )
 
+foreach(pformat ${plugin_formats})
+    set(target K-Meter_${pformat})
+
+    add_custom_command(
+        TARGET ${target}
+        PRE_BUILD
+        COMMENT "copying skins directory for ${target}"
+        COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different ${PROJECT_SOURCE_DIR}/skins $<TARGET_FILE_DIR:${target}>/kmeter/skins
+    )
+endforeach()
 
