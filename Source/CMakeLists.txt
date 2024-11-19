@@ -102,13 +102,42 @@ target_link_libraries(K-Meter
 foreach(pformat ${plugin_formats})
     set(target K-Meter_${pformat})
 
+    # copy skin dir
     add_custom_command(
         TARGET ${target}
         PRE_BUILD
-        COMMENT "copying skins directory for ${target}"
-        COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different 
-            ${PROJECT_SOURCE_DIR}/skins 
+        COMMENT "copying Default skin directory for ${target}"
+        COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different
+            ${PROJECT_SOURCE_DIR}/skins/Default
+            $<TARGET_FILE_DIR:${target}>/kmeter/skins/Default
+    )
+
+    # copy skin file
+    add_custom_command(
+        TARGET ${target}
+        PRE_BUILD
+        COMMENT "copying Default skin for ${target}"
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            ${PROJECT_SOURCE_DIR}/skins/Default.skin
             $<TARGET_FILE_DIR:${target}>/kmeter/skins
+    )
+
+    # copy docs
+    add_custom_command(
+        TARGET ${target}
+        PRE_BUILD
+        COMMENT "copying pdf doc for ${target}"
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            ${PROJECT_SOURCE_DIR}/doc/kmeter.pdf
+            $<TARGET_FILE_DIR:${target}>/kmeter
+    )
+    add_custom_command(
+        TARGET ${target}
+        PRE_BUILD
+        COMMENT "copying licence docs directory for ${target}"
+        COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different
+            ${PROJECT_SOURCE_DIR}/bin/standalone/kmeter/doc/
+            $<TARGET_FILE_DIR:${target}>/kmeter/doc
     )
 endforeach()
 
