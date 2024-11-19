@@ -17,6 +17,14 @@ juce_add_plugin(K-Meter
     FORMATS ${plugin_formats}
 )
 
+if(${KMETER_SURROUND})
+    message(STATUS "building plugin in surround mode")
+    target_compile_definitions(K-Meter PUBLIC KMETER_SURROUND=1)
+else()
+    message(STATUS "building plugin in stereo mode")
+    target_compile_definitions(K-Meter PUBLIC KMETER_STEREO=1)
+endif()
+
 
 juce_generate_juce_header(K-Meter)
 
