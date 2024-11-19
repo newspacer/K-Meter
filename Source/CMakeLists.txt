@@ -1,6 +1,7 @@
 
 set(plugin_formats VST3 LV2 Standalone)
 
+
 juce_add_plugin(K-Meter
     VERSION 2.8.2
     COMPANY_NAME "Martin Zuther"
@@ -19,7 +20,6 @@ juce_add_plugin(K-Meter
 
 juce_generate_juce_header(K-Meter)
 
-# add_dependencies(K-Meter assets)
 
 target_sources(K-Meter
     PRIVATE
@@ -89,6 +89,7 @@ target_link_libraries(K-Meter
         juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags
 )
+
 
 foreach(pformat ${plugin_formats})
     set(target K-Meter_${pformat})
