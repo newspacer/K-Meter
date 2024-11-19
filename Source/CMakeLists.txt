@@ -97,7 +97,9 @@ foreach(pformat ${plugin_formats})
         TARGET ${target}
         PRE_BUILD
         COMMENT "copying skins directory for ${target}"
-        COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different ${PROJECT_SOURCE_DIR}/skins $<TARGET_FILE_DIR:${target}>/kmeter/skins
+        COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different 
+            ${PROJECT_SOURCE_DIR}/skins 
+            $<TARGET_FILE_DIR:${target}>/kmeter/skins
     )
 endforeach()
 
