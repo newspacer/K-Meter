@@ -59,8 +59,13 @@ target_compile_definitions(K-Meter
         JUCE_USE_CURL=0
         JUCE_VST3_CAN_REPLACE_VST2=0
 
-        NDEBUG=1
         FRUT_DSP_USE_FFTW=1
+)
+
+target_compile_options(K-Meter
+    PUBLIC
+        -O3
+        -fPIC
 )
 
 
@@ -140,4 +145,10 @@ foreach(pformat ${plugin_formats})
             $<TARGET_FILE_DIR:${target}>/kmeter/doc
     )
 endforeach()
+
+install(TARGETS K-Meter_VST3 LIBRARY DESTINATION vst3 COMPONENT VST3)
+install(TARGETS K-Meter_LV2 LIBRARY DESTINATION lv2 COMPONENT LV2)
+install(TARGETS K-Meter_Standalone RUNTIME DESTINATION standalone COMPONENT STANDALONE)
+
+set(CPACK_COMPONENTS_ALL VST3 LV2 STANDALONE)
 
