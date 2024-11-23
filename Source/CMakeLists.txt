@@ -100,7 +100,6 @@ target_link_libraries(${TARGET_NAME}
         juce::juce_gui_extra
         juce::juce_opengl
         juce::juce_box2d
-        #juce::juce_browser_plugin_client
         juce::juce_video
         juce::juce_audio_formats
         juce::juce_core

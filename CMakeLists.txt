@@ -5,17 +5,24 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(VERSION 2.8.2)
 
-project(K-Meter
+option(KMETER_SURROUND "Build surround plugin (default=stereo)" OFF)
+
+if(${KMETER_SURROUND})
+    set(PROJECT_NAME K-Meter_surround)
+else()
+    set(PROJECT_NAME K-Meter)
+endif()
+
+project(${PROJECT_NAME}
     VERSION ${VERSION}
     LANGUAGES CXX)
 
-option(KMETER_SURROUND "Build surround plugin (default=stereo)" OFF)
 
 add_subdirectory(externals)
 
 add_subdirectory(Source)
 
-set(CPACK_PROJECT_NAME K-Meter)
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PACKAGE_VERSION ${VERSION})
 set(CPACK_GENERATOR "ZIP")
 
