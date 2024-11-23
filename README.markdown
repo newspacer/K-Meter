@@ -32,16 +32,16 @@ For documentation, licenses and further information, please see the
 ### Linux
 Run the following commands to build the package archive:
 ```bash
-$ git clone https://github.com/mzuther/K-Meter.github
-$ cd K-Meter
-$ cmake -B build/ -DCMAKE_BUILD_TYPE=Release            # configure
-$ cmake --build build/                                  # build
+$ git clone https://github.com/mzuther/K-Meter.github; cd K-Meter
+$ cmake -B build/ -DCMAKE_BUILD_TYPE=Release                        # configure
+$ cmake --build build/                                              # build
 $ cd build/
 $ cpack
 ```
 This will produce a zip archive in `build/` containing the compiled plugins.
 
-To build the surround version of the plugin, supply the flag `-DKMETER_SURROUND=ON` to the `cmake` configure step.
+To build the surround version of the plugin (the default is the stereo version), 
+supply the flag `-DKMETER_SURROUND=ON` to the `cmake` configure step.
 
 ## FAQ
 
@@ -58,14 +58,18 @@ To build the surround version of the plugin, supply the flag `-DKMETER_SURROUND=
 
 ### Where are the LV2 plug-ins?
 
-- The last release with LV2 plug-ins was version **v2.8.1**.  You can
-  still download them from the "Releases" page.
+- ~~The last release with LV2 plug-ins was version **v2.8.1**.  You can
+  still download them from the "Releases" page.~~
+- The plugin has been updated to JUCE 8, which includes LV2 support 
+  out-of-the-box.
 
 ### The stand-alone version does not work
 
-- Unfortunately, I cannot do anything about it as I did not code this
+- ~~Unfortunately, I cannot do anything about it as I did not code this
   part of the application.  The stand-alone works well for me - try
-  using another sound card or deleting the settings file.
+  using another sound card or deleting the settings file.~~
+- The plugin has been updated to JUCE 8, which may (or may not) address 
+  any past issues with the stand-alone version.
 
 ## Code of conduct
 
