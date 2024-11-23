@@ -15,7 +15,7 @@ endif()
 
 project(${PROJECT_NAME}
     VERSION ${VERSION}
-    LANGUAGES CXX)
+    LANGUAGES C CXX)
 
 
 add_subdirectory(externals)

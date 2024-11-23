@@ -11,7 +11,7 @@ set(plugin_formats VST3 LV2 Standalone)
 
 juce_add_plugin(${TARGET_NAME}
     VERSION 2.8.2
-    COMPANY_NAME "Martin Zuther"
+    COMPANY_NAME "MartinZuther"
     LV2URI "https://github.com/mzuther/K-Meter"
     IS_SYNTH FALSE
     NEEDS_MIDI_INPUT FALSE
@@ -110,6 +110,11 @@ target_link_libraries(${TARGET_NAME}
         juce::juce_recommended_warning_flags
 )
 
+
+target_link_options(${TARGET_NAME}
+    PUBLIC
+        -flto=auto
+)
 
 foreach(pformat ${plugin_formats})
     set(target ${TARGET_NAME}_${pformat})
