@@ -21,13 +21,7 @@ if(${LINUX})
 endif()
 
 
-if(${KMETER_SURROUND})
-    set(PROJECT_NAME K-Meter_surround)
-else()
-    set(PROJECT_NAME K-Meter)
-endif()
-
-project(${PROJECT_NAME}
+project(K-Meter
     VERSION ${GIT_TAG_VERSION}
     LANGUAGES C CXX)
 
@@ -36,7 +30,13 @@ add_subdirectory(externals)
 
 add_subdirectory(Source)
 
-set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+if(${KMETER_SURROUND})
+    set(PACKAGE_NAME K-Meter_surround)
+else()
+    set(PACKAGE_NAME K-Meter)
+endif()
+
+set(CPACK_PACKAGE_NAME ${PACKAGE_NAME})
 set(CPACK_PACKAGE_VERSION ${GIT_TAG_VERSION})
 set(CPACK_GENERATOR "ZIP")
 
