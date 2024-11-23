@@ -66,6 +66,7 @@ target_compile_definitions(${TARGET_NAME}
         JUCE_WEB_BROWSER=0
         JUCE_USE_CURL=0
         JUCE_VST3_CAN_REPLACE_VST2=0
+        JUCE_MODAL_LOOPS_PERMITTED=1
 
         FRUT_DSP_USE_FFTW=1
 )
