@@ -5,9 +5,7 @@ else()
     set(TARGET_NAME K-Meter)
 endif()
 
-
-set(plugin_formats VST3 LV2 Standalone)
-
+message(STATUS "targetting plugin formats: ${plugin_formats}")
 
 juce_add_plugin(${TARGET_NAME}
     VERSION 2.8.2

@@ -9,6 +9,18 @@ include(GitUtils)
 
 option(KMETER_SURROUND "Build surround plugin (default=stereo)" OFF)
 
+
+set(plugin_formats VST3 Standalone)
+
+if(${APPLE})
+    list(APPEND plugin_formats AU)
+endif()
+
+if(${LINUX})
+    list(APPEND plugin_formats LV2)
+endif()
+
+
 if(${KMETER_SURROUND})
     set(PROJECT_NAME K-Meter_surround)
 else()
