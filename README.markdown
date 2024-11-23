@@ -23,8 +23,9 @@ professionally such as in post-production.*
 K-Meter can be downloaded in the [releases][] section (you may need to
 click on "Assets").
 
-I have dropped LV2 plug-in support for good.  However, you can still
-use LV2 - just download version **v2.8.1**.
+~~I have dropped LV2 plug-in support for good.  However, you can still
+use LV2 - just download version **v2.8.1**.~~  The plugin has been 
+updated to JUCE 8, which includes LV2 support out-of-the-box.
 
 ## Documentation
 
