@@ -28,6 +28,21 @@ use LV2 - just download version **v2.8.1**.
 For documentation, licenses and further information, please see the
 [manual][] and the directory [doc][].
 
+## Building
+### Linux
+Run the following commands to build the package archive:
+```bash
+$ git clone https://github.com/mzuther/K-Meter.github
+$ cd K-Meter
+$ cmake -B build/ -DCMAKE_BUILD_TYPE=Release            # configure
+$ cmake --build build/                                  # build
+$ cd build/
+$ cpack
+```
+This will produce a zip archive in `build/` containing the compiled plugins.
+
+To build the surround version of the plugin, supply the flag `-DKMETER_SURROUND=ON` to the `cmake` configure step.
+
 ## FAQ
 
 ### K-Meter crashes when the plug-in is loaded / opened
