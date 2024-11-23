@@ -98,15 +98,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 Thank you for using free software!
 
-## VST2 plug-ins
-
-Technically, my VST2 plug-ins are not free software.  However, I
-chose to provide them for your convenience.  All other binaries really
-are free software in the sense of the Free Software Foundation.
-
-*VST is a trademark of Steinberg Media Technologies GmbH, registered
-in Europe and other countries.*
-
 
 [COC]:             https://github.com/mzuther/K-Meter/tree/master/CODE_OF_CONDUCT.markdown
 [doc]:             https://github.com/mzuther/K-Meter/tree/master/doc/
