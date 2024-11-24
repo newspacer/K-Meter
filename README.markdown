@@ -36,9 +36,9 @@ For documentation, licenses and further information, please see the
 ### Linux
 Run the following commands to build the package archive:
 ```bash
-$ git clone https://github.com/mzuther/K-Meter.github; cd K-Meter
-$ cmake -B build/ -DCMAKE_BUILD_TYPE=Release                        # configure
-$ cmake --build build/                                              # build
+$ git clone --recurse-submodules https://github.com/mzuther/K-Meter.github; cd K-Meter
+$ cmake -B build/ -DCMAKE_BUILD_TYPE=Release                                            # configure
+$ cmake --build build/                                                                  # build
 $ cd build/
 $ cpack
 ```
